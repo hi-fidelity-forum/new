@@ -1,0 +1,1 @@
+Shop Admin Panel - Settings Page

@@ -1,0 +1,68 @@
+# Turn on URL rewriting
+AddDefaultCharset utf-8
+
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www\.(.*)
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+RewriteCond %{HTTPS} off
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Now, rewrite any request to the wrong domain to use www.
+# [NC] is a case-insensitive match
+#RewriteCond %{HTTP_HOST} ^www\. [NC]
+#RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#RewriteRule ^forum/user-([0-9]+)\.html$ index.php?route=$0 [NC,R=301,L]
+RewriteRule ^user-([0-9]+)\.html$ /profile/$1 [L,R=301]
+
+RewriteCond %{REQUEST_URI}  ^/reputation\.php$
+RewriteCond %{QUERY_STRING} ^uid=([0-9]*)$
+RewriteRule ^(.*)$ /profile/%1/reputations [R=301,L]
+
+RewriteCond %{REQUEST_URI}  ^/member\.php$
+RewriteCond %{QUERY_STRING} ^action=profile&uid=([0-9]*)$
+RewriteRule ^(.*)$ /profile/%1? [R=301,L]
+
+RewriteRule ^(?:thread-|archive|post-|showthread|private.php|xmlhttp.php|forum-|printthread)\b.* forum/$0 [R=301,L]
+
+# Installation directory
+RewriteBase /
+
+# Protect hidden files from being viewed
+<Files .*>
+	Order Deny,Allow
+	Deny From All
+</Files>
+
+RewriteCond %{REQUEST_URI} !^/img/.*$
+RewriteCond %{REQUEST_URI} !^/css/.*$
+RewriteCond %{REQUEST_URI} !^/js/.*$
+RewriteCond %{REQUEST_URI} !^/_partners/.*$
+RewriteCond %{REQUEST_URI} !^/_share/.*$
+RewriteCond %{REQUEST_URI} !^/_todo/.*$
+RewriteCond %{REQUEST_URI} !^/forum/.*$
+RewriteCond %{REQUEST_URI} !^/dev/.*$
+RewriteCond %{REQUEST_URI} !^/db_admin/.*$
+RewriteCond %{REQUEST_URI} !^/sxd/.*$
+RewriteCond %{REQUEST_URI} !^/android/.*$
+RewriteCond %{REQUEST_URI} !^/projects/.*$
+RewriteCond %{REQUEST_URI} !^/uploads/.*$
+RewriteCond %{REQUEST_URI} !^/new/.*$
+RewriteCond %{REQUEST_URI} !^/squirrelmail/.*$
+
+# Protect application and system files from being viewed
+RewriteRule ^(?:publish|attach|application|modules|system)\b.* index_old.php/$0 [L]
+
+RewriteRule ^(?:admin|service|member|users|rules|profile|profile2|forum2|shop|cli|usercp).*$ index.php?route=$0 [L,QSA]
+
+# Allow any files or directories that exist to be displayed directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+# Rewrite all other URLs to index.php/URL
+
+RewriteRule .* index.php/$0 [PT]
