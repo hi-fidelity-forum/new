@@ -3,12 +3,12 @@ apple-touch-icon-152x152-precomposed.png
 apple-touch-icon-76x76.png
 apple-touch-icon.png
 apple-touch-icon-precomposed.png
-application
+/application/*
 cache
 db_admin
-dev
+/dev/*
 favicon.ico
-forum
+/forum/*
 google550fce742c805669.html
 images
 img
