@@ -94,7 +94,7 @@
                 if($session->isAuth()) {
                 ?>
                     <div class="userblock">
-                        <a href="/forum/usercp.php"><img class="usera_va" src="https://hi-fidelity-forum.com/<?=$session->user()->get('avatar');?>" title="Мой профиль"></a>
+                        <a href="/forum/usercp.php"><img class="usera_va" src="<?=$session->user()->getAvatarSrc();?>" title="Мой профиль"></a>
                     </div>
                     <span><a href="<?=Request::$base_url;?>profile/<?=$session->user()->get('uid');?>"><?=$session->user()->get('username');?></a></span>&nbsp;
                     <a href="<?=Request::$base_url;?>member/logout"><img src="/images/icons/logout.png" title="Выход"></a>
