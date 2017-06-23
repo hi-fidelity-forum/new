@@ -49,7 +49,7 @@ if ($user)
 					<td align="right">Объяв.</td>
 					<td>
 						<select name="count_ad">
-							<option value="20">20</option>
+							<option value="10">10</option>
 							<option value="50">50</option>
 							<option value="100">100</option>
 							<option value="150">150</option>
