@@ -478,7 +478,10 @@ class Model_Shop_Ad extends Model
 						unlink($remove_file);
 					}
 					$rmdir = DOCROOT.'uploads/attachments/' . $cid.'/'.$ad_id;
-					rmdir($rmdir);
+					if (is_dir($rmdir))
+					{
+						rmdir($rmdir);
+					}
 				}
 				//todo: удалять из списка категорий если объява last_ad
 				DB::query('DELETE FROM shop_ads WHERE id = '.$ad_id);

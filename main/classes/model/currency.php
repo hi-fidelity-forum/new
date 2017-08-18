@@ -7,7 +7,7 @@ class Model_Currency extends Model
 
 	public function __construct()
 	{    
-        $this->_get_currency_url = 'https://www.liqpay.com/exchanges/exchanges.cgi';
+        $this->_get_currency_url = 'https://www.liqpay.ua/exchanges/exchanges.cgi';
 		
 		parent::__construct();
 		
