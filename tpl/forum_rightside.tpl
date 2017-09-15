@@ -14,7 +14,7 @@
 <div onclick="MyAdvertisements.do_click(15);"></div>
 
 <div onclick="MyAdvertisements.do_click(4);"><p align="right"><a href="http://englishsound.com.ua/ru/cat/260.htm" target="_blank"><img src="/_partners/gsp_reklu.jpg" alt="" border="0"></a></p></div>
-<div onclick="MyAdvertisements.do_click(4);"><p align="right"><a href="http://bringer.com.ua/" target="_blank"><img src="/_partners/bringer.jpg" alt="" border="0"></a></p></div>
+<div onclick="MyAdvertisements.do_click(4);"><p align="right"><a href="http://bringer.com.ua/" target="_blank"><img src="/_partners/bringer.png" alt="" border="0" width="200px"></a></p></div>
 <div onclick="MyAdvertisements.do_click(5);"><div align="right"><a href="http://www.world-sound.com.ua/ru/cat/334.htm" target="_blank"><img src="/_partners/ban2.jpg" alt="" border="0"></a>
 </div></div>
 
